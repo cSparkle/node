@@ -1,5 +1,41 @@
-In your own words highlight the differences in functionality and purposes Client-Side and Server-Side code serves in a full-stack web application.
+1. Essentially, client-side code serves to build or render information presented by the server in the form of JS logic and html. The main purpose of client-side code
+is to present the user with a GUI that incorporates desired information from a database or server. Client-side code creates HTTP requests which are sent to the server
+which gathers and responds to these requests with the appropriate data. Therefore, server-side code is intended to act as a middle-man between the user and the database
+and responds to user requests by locating and outputing data based on user interactions. Client-side code is considered the front-end whereas server-side code is the back-end.
 
-What explains Nodes' rise in popularity and use? What does "Isomorphic JavaScript programming" mean? Provide some real-world examples not listed in this checkpoint of companies using Node.js.
+2. Probably the most notable cause for Node's popularity is its implementation of isomorphic JS programming, which basically means that JS is the language used for both
+the front-end and back-end services. Many other back-end frameworks require the coder to learn a separate language, but Node enables the use of JS for both client-side and
+server-side purposes. Furthermore, Node is noticeably faster than comparative frameworks, likely because it is build using Google Chrome's powerful V8 JS engine.
+Many large companies and institutions such as eBay, LinkedIn, PayPal, NASA, Uber, and Walmart use Node, primarily because of its ability to provide reliable and fast server-side
+access in an asynchronous manner for a large multitude of users at a single time. For instance, Node's website recognizes Walmart's need to maintain a viable site for the millions
+of shoppers that flood the website during the holidays and especially during Black Friday. 
 
-Draw a diagram of a full-stack web application and its key components.
+3.
+________________________
+| Browser (client-side)|
+|   ________________   |
+|   |  App code    |   |
+|   | incl. frmwrks|   |
+|   |______/|\_____|   |
+|           |          |
+|___________|__________|
+            |
+            |
+____________|___________
+|           |          |
+|  ________ | _______  |  
+|  |       \|/      |  |
+|  |   API process  |  |
+|  |________________|  |
+|                      |
+| Node.js (Server-side)|
+|__________/|\_________| 
+            |
+            |
+____________|___________
+|           |          |     
+|          \|/         |
+|                      |
+|       Database       |
+|                      |
+|______________________| 
