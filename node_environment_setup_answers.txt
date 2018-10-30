@@ -1,0 +1,7 @@
+1. npm stands for Node Package Manager and is an interface designed to allow coders to easily download and install packages and dependencies for a project.
+
+2. package.json holds all of the information about a project that identifies the project's purpose and dependencies. For instance, package.json stores info on licensing,
+keywords for the project, dependencies and their versions, the version number of the project, the project creator, etc. 
+
+3. Moment is a package designed to make formatting and parsing dates easier. Once installed with npm, the package.json file in the demo directory updated to include a line 
+for moment under the dependencies section like this: "moment": "^2.22.2"
