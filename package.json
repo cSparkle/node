@@ -1,0 +1,22 @@
+{
+  "name": "my-first-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cSparkle/node.git"
+  },
+  "author": "Cortney Thomas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cSparkle/node/issues"
+  },
+  "homepage": "https://github.com/cSparkle/node#readme",
+  "dependencies": {
+    "uuid": "^3.3.2"
+  }
+}
