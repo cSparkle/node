@@ -1,0 +1,59 @@
+1. readdirSync is a synchronous method that reads the contents of a directory. Synchronous refers to an action that executes in order, one line at a time.
+This is also a blocking method meaning, essentially, that it is a slower process that prevents the program from moving forward to other executions while this method is running.
+readdir, on the other hand, is an asynchronous method. Other code can be executed while readdir runs in the background and finishes once the callback function supplied within
+the readdir method is executed.
+
+2. The event loop is a simple mechanism that pulls asynchronous processes from the the callback queue and adds them to the call stack in a FIFO manner. When a method creates
+an asynchronous process, that process is handled by web APIs. This is what allows multiple processes to be running at the same time despite JS being a single-threaded language.
+Once the API completes the asynchronous action, the output is stored in the callback queue until the call stack is emptied. Then, each output in the callback queue is placed
+within the callstack to finish executing with the first output in the callback queue going first. The event loop handles this transition from callback queue to callstack.
+
+3. This program will be synchronous and blocking. readFileSync is, by nature, a synchronous process and because reading informating from the disk takes more than a negligible
+amount of time, it is considered blocking as it slows the program and prevents further code from executing until it is completed.
+
+4. This program is asynchronous and non-blocking. The readFile method is an asynchronous process that incorporates a callback (the anonymous function with err and file as parameters).
+Thus, readFile can be executed in the background while the console.log("test"); line executes. Then, when readFile finishes, the callback is added to the callback queue, then to the callstack,
+and is finally executed to signify the completion of the readFile method. This is non-blocking because the program is not slowed down by the readFile method.
+
+5. Because readFile is asynchronous, it will begin execution but will run in the background and complete it's console.logs after the final console.log. The order should be:
+console.log("C");
+console.log("A");
+console.log("B");
+
+6. The code will read from top to bottom, but because setTimeout() is asynchronous, it will not log "friend" first. Instead, setTimeout() will be handled by the Web API while
+the rest of the code continues to execute. Once setTimeout has finished, it's console.log output will be sent to the callback queue to wait until the callstack is full to finish.
+Therefore, the first thing we will see is the output from console.log("hello") even thought greeting() is called first. Then, we will see the output from greeting() which is console.log("friend").
+In other words, we will get:
+
+"hello"
+"friend"
+
+7. The callback I wrote is:
+
+function sayHello(name) {
+    console.log("Hello " + name);
+};
+
+function inputName(name, callback) {
+	console.log("Preparing to execute callback function within inputName");
+    callback(name);
+	console.log("Callback function within inputName has been called");
+};
+
+
+console.log("Preparing to call function inputName");
+inputName("Cortney", sayHello);
+console.log("Function inputName has been called");
+
+The console.log() statements show the following output:
+
+Preparing to call function inputName
+Preparing to execute callback function within inputName
+Hello Cortney
+Callback function within inputName has been called
+Function inputName has been called
+
+This demonstrates that the console.log statement on line 44 was the first thing executed. Then, when the inputName() function is called on line 45, we jump within that
+function to the console.log on line 38. Then, the callback sayHello() is executed and the output provided to the inputName() function which allows output of this function
+to be given. The last console.log in this function is run, which allows for the final completion of the function. Finally, the last console.log (the one called after we call
+inputName()) is able to execute.
