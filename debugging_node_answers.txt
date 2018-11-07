@@ -1,0 +1,16 @@
+1. You open a Chrome browser tab, and navigate to chrome://inspect. Alternatively, you can type about:inspect. Then, you click the link titled "Open dedicated Dev Tools for Node". To see output in the window that opens,
+you run the following in the terminal: node --inspect <name of .js file to debug>
+
+2. There are a few differences between the standard Chrome Dev Tools and the Dev Tools created specifically for Node. First, the way to access is different. As opossed to Node,
+which is accessed as explained above, traditional Chrome Dev Tools can be accessed simply by right clicking on a webpage and selecting inspect. A second notable difference is what
+information is presented. With traditional Dev Tools, you can see the html file and all elements, scripts, and links presented in it that are related to the webpage as well as information
+about the network such as API and AJAX calls. With Node Dev Tools, you cannot see network information and you only see output when a debugging breakpoint is reached within the code
+being inspected. 
+
+3. When debugging in the terminal, you can use 'c' or 'cont' (without quotation marks) to continue execution.
+
+4. debugger
+
+5. One of the handiest things I learned is that I can insert a break into the middle of a function or async operation to see exactly what is happening within the method. Furthermore,
+I can "step in" to code as specific breakpoints following debug errors and if I am entering the code at a point where the callstack for the error begins in a Node.js file rather than in
+the file I'm debugging, I can black box these to jump over them and see exactly at which point in the code the error is occurring. 
